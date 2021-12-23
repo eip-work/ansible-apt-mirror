@@ -5,5 +5,6 @@
     dest: "{{ apt_mirror_apache_root_dir }}/{{ item['distro'] }}"
     state: link
     force: yes #we do this because the src may/may not exist yet
+    follow: false
   become: true
   with_items: "{{ apt_mirror_apache_links }}"
