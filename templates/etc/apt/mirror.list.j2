@@ -24,4 +24,4 @@ set limit_rate {{ apt_mirror_limit_rate }}k
 {%   endfor %}
 {% endif %}
 
-clean http://{{ apt_mirror_ubuntu_mirror }}
+clean {{ apt_mirror_ubuntu_mirror_protocol }}{{ apt_mirror_ubuntu_mirror }}
