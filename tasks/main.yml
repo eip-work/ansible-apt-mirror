@@ -33,3 +33,8 @@
     - not apt_mirror_client|bool
     - apt_mirror_schedule_updates is defined
     - apt_mirror_schedule_updates|bool
+
+- include: get_gpg.yml
+  when:
+    - kuboardspray_get_gpg is defined
+    - kuboardspray_get_gpg|bool

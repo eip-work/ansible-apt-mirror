@@ -1,0 +1,4 @@
+- name: Download file with check (md5)
+  get_url:
+    url: "{{apt_mirror_ubuntu_mirror_protocol}}{{apt_mirror_ubuntu_mirror}}/gpg"
+    dest: /var/www/html/ubuntu/gpg
