@@ -1,4 +1,16 @@
 ---
+- name: fix apt-mirror with patch that can copy Commands-.xz
+  ansible.builtin.copy:
+    src: apt-mirror
+    dest: /usr/bin/apt-mirror
+    owner: root
+    group: root
+    mode: u=rwx,g=rx,o=rx
+    backup: true
+  when:
+    - ansible_distribution == "Ubuntu"
+    - ansible_distribution_version == "20.04"
+
 - name: config_apt_mirror | ensuring apt_mirror_dir exists
   file:
     dest: "{{ apt_mirror_dir }}"
@@ -6,6 +18,8 @@
     owner: apt-mirror
     group: apt-mirror
   become: true
+
+
 
 # - name: config_apt_mirror | ensuring permissions are set for apt_mirror_dir
 #   file:
